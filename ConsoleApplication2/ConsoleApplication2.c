@@ -9,6 +9,13 @@ int main(int argc, char *argv[])
 
     printf("Initializing WinSock2...\n");
 
+    if (WSAStartup(MAKEWORD(2,2), &wsa) != 0)
+    {
+        printf("Failed. Error code: %d\n", WSAGetLastError());
+        return 1;
+    }
+
+    printf("Initialized\n");
 
     return 0;
 }
